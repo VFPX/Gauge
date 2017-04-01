@@ -1,4 +1,6 @@
-﻿## Introduction
+﻿Project Manager: [Doug Hennig](mailto:dhennig@stonefield.com)
+
+## Introduction
 
 People like visual images. Most people would rather see a chart than columns of raw numbers because it’s easier to see the relationships between items visually. Adding analysis tools like charts and gauges to your applications make them much more valuable to your users.  
 
