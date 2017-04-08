@@ -1,4 +1,6 @@
-﻿Project Manager: [Doug Hennig](mailto:dhennig@stonefield.com)
+﻿# Gauge
+
+Project Manager: [Doug Hennig](mailto:dhennig@stonefield.com)
 
 ## Introduction
 
