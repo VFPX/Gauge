@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -701,7 +700,7 @@ namespace Gauge
             DrawPointer(g, ((_width) / 2) + _x, ((_height) / 2) + _y, width, height);
 
             // Draw the goal marker.
-            if (ShowGoalMarker && GoalPosition >= MinValue && GoalPosition <= MaxValue)
+            if (ShowGoalMarker && GoalPosition >= Math.Min(MinValue, MaxValue) && GoalPosition <= Math.Max(MinValue, MaxValue))
             {
                 DrawGoalMarker(g, rectImg, ((_width) / 2) + _x, ((_height) / 2) + _y, width);
             }
@@ -739,24 +738,14 @@ namespace Gauge
         /// </param>
         private void DrawPointer(Graphics gr, int cx, int cy, int width, int height)
         {
-            float radius = width / 2 - (width * .12F);
-            float val = Math.Abs(MaxValue - MinValue);
-
+            // Create the bitmap we're going to draw on.
             Image img = new Bitmap(width, height);
             Graphics g = Graphics.FromImage(img);
             g.SmoothingMode = SmoothingMode.AntiAlias;
 
-            if (MaxValue > MinValue)
-            {
-                val = (100 * Math.Max(Math.Min(Value, MaxValue) - MinValue, MinValue)) / val;
-            }
-            else
-            {
-                val = 100 - (100 * Math.Max(Math.Min(Value, MinValue) - MaxValue, MaxValue)) / val;
-            }
-            val = ((_toAngle - _fromAngle) * val) / 100;
-            val += _fromAngle;
-
+            // Calculate the radius and drawing angle.
+            float radius = width / 2 - (width * .12F);
+            float val = GetDrawingAngle(Value);
             float angle = GetRadian(val);
             float gradientAngle = angle;
 
@@ -805,6 +794,43 @@ namespace Gauge
             DrawGloss(g);
 
             gr.DrawImage(img, 0, 0);
+        }
+
+        /// <summary>
+        /// Determine the drawing angle from the specified amount.
+        /// </summary>
+        /// <param name="amount">
+        /// The amount to draw at.
+        /// </param>
+        /// <returns>
+        /// The angle in radians for the amount.
+        /// </returns>
+        private float GetDrawingAngle(float amount)
+        {
+            // Don't allow Value to be above MaxValue or below MinValue.
+            float val = Math.Abs(MaxValue - MinValue);
+            float value;
+            float minValue;
+            if (MaxValue > MinValue)
+            {
+                value = Math.Min(Math.Max(amount, MinValue), MaxValue);
+                minValue = MinValue;
+            }
+            else
+            {
+                value = Math.Min(Math.Max(amount, MaxValue), MinValue);
+                minValue = MaxValue;
+            }
+
+            // Calculate the drawing angle.
+            val = (100 * (value - minValue)) / val;
+            if (MinValue > MaxValue)
+            {
+                val = 100 - val;
+            }
+            val = ((_toAngle - _fromAngle) * val) / 100;
+            val += _fromAngle;
+            return val;
         }
 
         /// <summary>
@@ -901,8 +927,8 @@ namespace Gauge
             Rectangle rectangle = new Rectangle(rect.Left + gap, rect.Top + gap, rect.Width - gap, rect.Height - gap);
 
             float radius = rectangle.Width / 2 - gap * 5;
-            float totalAngle = _toAngle - _fromAngle;
-            float angle = GetRadian(totalAngle * GoalPosition / MaxValue + _fromAngle);
+            float val = GetDrawingAngle(GoalPosition);
+            float angle = GetRadian(val);
 
             // Draw a diamond.
             PointF[] pts = new PointF[4];

@@ -193,7 +193,7 @@ DEFINE CLASS form1 AS form
 		FontName = "Tahoma", ;
 		Left = 14, ;
 		Name = "chkShowGoalMarker", ;
-		TabIndex = 9, ;
+		TabIndex = 19, ;
 		ToolTipText = "lShowGoalMarker", ;
 		Top = 354
 		*< END OBJECT: BaseClass="checkbox" />
@@ -274,7 +274,7 @@ DEFINE CLASS form1 AS form
 		FontName = "Tahoma", ;
 		Left = 14, ;
 		Name = "lblGoalMarkerColor", ;
-		TabIndex = 10, ;
+		TabIndex = 20, ;
 		Top = 379
 		*< END OBJECT: BaseClass="label" />
 
@@ -987,7 +987,7 @@ DEFINE CLASS form1 AS form
 		Height = 24, ;
 		Left = 23, ;
 		Name = "cboType", ;
-		TabIndex = 10, ;
+		TabIndex = 7, ;
 		ToolTipText = "nBackGradientMode", ;
 		Top = 123, ;
 		Width = 150, ;
@@ -1003,7 +1003,7 @@ DEFINE CLASS form1 AS form
 		FontName = "Tahoma", ;
 		Left = 29, ;
 		Name = "chkGradient", ;
-		TabIndex = 5, ;
+		TabIndex = 2, ;
 		Top = 41, ;
 		Value = .F., ;
 		ZOrderSet = 5
@@ -1016,7 +1016,7 @@ DEFINE CLASS form1 AS form
 		FontName = "Tahoma", ;
 		Left = 13, ;
 		Name = "lblBackColor", ;
-		TabIndex = 4, ;
+		TabIndex = 1, ;
 		Top = 13, ;
 		ZOrderSet = 4
 		*< END OBJECT: BaseClass="label" />
@@ -1028,7 +1028,7 @@ DEFINE CLASS form1 AS form
 		FontName = "Tahoma", ;
 		Left = 13, ;
 		Name = "lblBackColorAlpha", ;
-		TabIndex = 4, ;
+		TabIndex = 8, ;
 		Top = 172, ;
 		ZOrderSet = 3
 		*< END OBJECT: BaseClass="label" />
@@ -1040,7 +1040,7 @@ DEFINE CLASS form1 AS form
 		FontName = "Tahoma", ;
 		Left = 23, ;
 		Name = "lblFromColor", ;
-		TabIndex = 7, ;
+		TabIndex = 4, ;
 		Top = 63, ;
 		ZOrderSet = 7
 		*< END OBJECT: BaseClass="label" />
@@ -1053,7 +1053,7 @@ DEFINE CLASS form1 AS form
 		Left = 42, ;
 		Name = "lblGradient", ;
 		Style = 3, ;
-		TabIndex = 6, ;
+		TabIndex = 3, ;
 		Top = 41, ;
 		ZOrderSet = 12
 		*< END OBJECT: BaseClass="label" />
@@ -1065,7 +1065,7 @@ DEFINE CLASS form1 AS form
 		FontName = "Tahoma", ;
 		Left = 23, ;
 		Name = "lblToColor", ;
-		TabIndex = 8, ;
+		TabIndex = 5, ;
 		Top = 83, ;
 		ZOrderSet = 10
 		*< END OBJECT: BaseClass="label" />
@@ -1077,7 +1077,7 @@ DEFINE CLASS form1 AS form
 		FontName = "Tahoma", ;
 		Left = 23, ;
 		Name = "lblType", ;
-		TabIndex = 9, ;
+		TabIndex = 6, ;
 		Top = 103, ;
 		ZOrderSet = 9
 		*< END OBJECT: BaseClass="label" />
@@ -1127,7 +1127,7 @@ DEFINE CLASS form1 AS form
 		Name = "spnBackColorAlpha", ;
 		SpinnerHighValue = 255.00, ;
 		SpinnerLowValue = 0.00, ;
-		TabIndex = 5, ;
+		TabIndex = 9, ;
 		ToolTipText = "nBackColorAlpha (0 - 255)", ;
 		Top = 168, ;
 		Width = 50, ;
@@ -1206,6 +1206,11 @@ DEFINE CLASS form1 AS form
 
 	PROCEDURE pgfProperties.SFPage2.Activate
 		This.Refresh()
+		
+	ENDPROC
+
+	PROCEDURE pgfProperties.SFPage2.lblBand1StartValue.Refresh
+		
 		
 	ENDPROC
 
