@@ -803,7 +803,7 @@ namespace Gauge
         /// The amount to draw at.
         /// </param>
         /// <returns>
-        /// The angle in radians for the amount.
+        /// The angle for the amount.
         /// </returns>
         private float GetDrawingAngle(float amount)
         {
