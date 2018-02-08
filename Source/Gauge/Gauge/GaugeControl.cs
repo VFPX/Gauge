@@ -1086,7 +1086,7 @@ namespace Gauge
         {
             try
             {
-                string num = String.Format(Format.Replace("$", "").Replace(",", ""), number).PadLeft(7, ' ');
+                string num = number.ToString().PadLeft(7, ' ');
                 float shift = 0;
                 if (number < 0)
                 {
