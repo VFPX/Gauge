@@ -260,7 +260,7 @@ DEFINE CLASS gauge AS custom
 		if vartype(toBridge) = 'O'
 			This.oBridge = toBridge
 		else
-			This.oBridge = newobject('wwDotNetBridge', 'wwDotNetBridge.prg', '', 'V2')
+			This.oBridge = newobject('wwDotNetBridge', 'wwDotNetBridge.prg')
 		endif vartype(toBridge) = 'O'
 		
 		* Load the Gauge assembly: it must be in the current directory or path.

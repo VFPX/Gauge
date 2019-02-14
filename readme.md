@@ -439,7 +439,8 @@ This form is actually quite simple. Its Init method adds eight Image controls an
 
 ## How Gauge works
 
-The Gauge class is actually a wrapper for a .NET DLL that does all the work. I’ll discuss the .NET class later.  
+The Gauge class is actually a wrapper for a .NET DLL that does all the work. I'll discuss the .NET class later.
+
 To avoid COM registration and other issues, I use Rick Strahl’s wwDotNetBridge utility ([https://west-wind.com/wwDotnetBridge.aspx](https://west-wind.com/wwDotnetBridge.aspx)). As you can see in the code below, the Init method of Gauge instantiates wwDotNetBridge into the oBridge property. Since you usually only want a single instance of wwDotNetBridge in an application, you can pass an existing instance to Init instead. Init also loads the Gauge.DLL .NET assembly and instantiates the Gauge.GaugeControl class into the oGauge property.  
 
 Since the .NET DLL does all the work, all the DrawGauge method of the Gauge class has to do is populate the properties of the .NET object with the values of its own properties, call the .NET object’s DrawGauge method, and put the return value, which is the bytes of the gauge image, into cImage.  
