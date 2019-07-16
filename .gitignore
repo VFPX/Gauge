@@ -32,8 +32,9 @@
 *.docstates
 
 # Folders to exclude
-**/bin/*
-**/obj/*
+bin/*
+obj/*
+.vs/*
 
 # Specific files
 *.exe
