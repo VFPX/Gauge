@@ -1,6 +1,6 @@
 ﻿# Gauge
 
-Project Manager: [Doug Hennig](mailto:dhennig@stonefield.com)
+Project Manager: [Doug Hennig](mailto:dhennig@stonefieldquery.com)
 
 ## Introduction
 
@@ -479,4 +479,14 @@ Deploying Gauge is straightforward:
 
 *   Include wwDotNetBridge.DLL, ClrHost.DLL, and Gauge.DLL in your installer or copy those files to the client’s system. No registration is required for any of these components.
 
-Gauge.DLL requires version 2.0 of the .NET framework. Windows Vista and later come with .NET 2.0 so this is only an issue for Windows XP and earlier. If you use Inno Setup as your application installer, you can make your installer detect whether .NET 2.0 is missing and automatically download and install it by adding #INCLUDE DotNet2Install.iss to your Inno script file. DotNet2Install.iss is included in the downloads, as is Isxdl.DLL, a component used by DotNet2Install.iss.
+Gauge.DLL requires version 2.0 or later of the .NET framework. Windows Vista and later come with .NET 2.0 so this is only an issue for Windows XP and earlier. If you use Inno Setup as your application installer, you can make your installer detect whether .NET 2.0 is missing and automatically download and install it by adding #INCLUDE DotNet2Install.iss to your Inno script file. DotNet2Install.iss is included in the downloads, as is Isxdl.DLL, a component used by DotNet2Install.iss.
+
+## Helping with this project
+
+See [How to contribute to Gauge](.github/CONTRIBUTING.md) for details on how to help with this project.
+
+## Releases
+
+### 2019-02-01
+
+* Initial release.
