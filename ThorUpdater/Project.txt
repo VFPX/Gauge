@@ -1,0 +1,5 @@
+appName = Gauge
+appID = Gauge
+majorVersion = 1.0
+excludeFiles = *.fxp,README.md,*.png,.gitignore,*.suo,*.docx,*.zip
+excludeFolders = *bin*,*obj*,*ThorUpdater*
