@@ -9,6 +9,7 @@
 - Make whatever changes are necessary.
 - Use [FoxBin2Prg](https://github.com/fdbozzo/foxbin2prg) to create text files for all VFP binary files (SCX, VCX, DBF, etc.)
 - Update the Releases section of README.md and describe the changes. Also, make any necessary changes to the documentation on that page.
+- Right-click CreateThorUpdate.ps1 in the ThorUpdater folder and choose Run with PowerShell to update the file the Thor Check for Updates function needs.
 - Commit the changes.
 - Push to your fork.
 - Create a pull request; ensure the description clearly describes the problem and solution or the enhancement.
